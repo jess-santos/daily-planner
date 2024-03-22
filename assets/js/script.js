@@ -45,3 +45,12 @@ function colorCodeTimeBlocks() {
     });
 }
 
+function loadSavedEvents() {
+    $('.event-input').each(function() {
+        const timeBlockId = $(this).attr('id');
+        const savedEvent = localStorage.getItem(timeBlockId);
+        if (savedEvent) {
+            $(this).val(savedEvent);
+        }
+    });
+}
