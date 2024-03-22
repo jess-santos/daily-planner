@@ -19,3 +19,20 @@ function generateTimeBlocks() {
     }
 }
 
+
+function colorCodeTimeBlocks() {
+    const now = dayjs();
+    const currentHour = now.hour();
+ 
+    $('.row').each(function() {
+        const timeBlockHour = parseInt($(this).find('.col-2').text());
+        if (timeBlockHour < currentHour) {
+            $(this).addClass('past').removeClass('present future');
+        } else if (timeBlockHour === currentHour) {
+            $(this).addClass('present').removeClass('past future');
+        } else {
+            $(this).addClass('future').removeClass('past present');
+        }
+    });
+ }
+ 
