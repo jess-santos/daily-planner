@@ -54,3 +54,19 @@ function loadSavedEvents() {
         }
     });
 }
+
+function showSuccessMessage(message) {
+    const successMessage = $('#success-message');
+    successMessage.text(message);
+    successMessage.fadeIn(500).delay(2000).fadeOut(500);
+}
+
+function saveEvent() {
+    $('.save-btn').on('click', function() {
+        const eventInput = $(this).siblings('.event-input');
+        const eventText = eventInput.val();
+        const timeBlockId = eventInput.attr('id');
+        localStorage.setItem(timeBlockId, eventText);
+        showSuccessMessage("Event saved successfully!");
+    });
+}
