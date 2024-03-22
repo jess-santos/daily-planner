@@ -5,6 +5,10 @@ $(document).ready(function() {
     loadSavedEvents();
 });
 
+const currentDate = dayjs().format('MMMM D, YYYY');
+$('#currentDay').text(currentDate);
+
+
 function generateTimeBlocks() {
     const container = $('.container');
     for (let i = 9; i <= 17; i++) {
@@ -40,12 +44,13 @@ function colorCodeTimeBlocks() {
  
  function saveEvent() {
     $('.save-btn').on('click', function() {
-        const eventInput = $(this).siblings('.event-input');
-        const eventText = eventInput.val();
-        const timeBlockId = eventInput.attr('id');
-        localStorage.setItem(timeBlockId, eventText);
+        const eventInputId = $(this).closest('.row').find('.event-input').attr('id');
+        const eventText = $(this).closest('.row').find('.event-input').val();
+        localStorage.setItem(eventInputId, eventText);
+        showSuccessMessage("Event saved successfully!");
     });
 }
+
 
 function loadSavedEvents() {
     $('.event-input').each(function() {
@@ -63,12 +68,3 @@ function showSuccessMessage(message) {
     successMessage.fadeIn(500).delay(2000).fadeOut(500);
 }
 
-function saveEvent() {
-    $('.save-btn').on('click', function() {
-        const eventInput = $(this).siblings('.event-input');
-        const eventText = eventInput.val();
-        const timeBlockId = eventInput.attr('id');
-        localStorage.setItem(timeBlockId, eventText);
-        showSuccessMessage("Event saved successfully!");
-    });
-}
