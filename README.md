@@ -18,8 +18,14 @@ Daily Planner is a web application designed to help users manage their daily wor
 ## Usage
 1. Open the application in a web browser.
 2. The current day and a list of time blocks will be displayed.
+
+![screenshot](https://github.com/jess-santos/daily-planner/blob/main/assets/images/overview.png)
+
 3. Enter your event details in the input field for each hour.
 4. Click the "Save" button to save the event for that hour.
+
+![screenshot](https://github.com/jess-santos/daily-planner/blob/main/assets/images/eventsaved.png)
+
 5. Events will be color-coded based on their timing relative to the current time.
 
 ## Installation
