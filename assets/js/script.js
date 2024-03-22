@@ -36,3 +36,12 @@ function colorCodeTimeBlocks() {
     });
  }
  
+ function saveEvent() {
+    $('.save-btn').on('click', function() {
+        const eventInput = $(this).siblings('.event-input');
+        const eventText = eventInput.val();
+        const timeBlockId = eventInput.attr('id');
+        localStorage.setItem(timeBlockId, eventText);
+    });
+}
+
